@@ -14,7 +14,7 @@ namespace HW2
         private string ten;
         private string dchi;
         private double luong;
-        //tạo hàm person
+        //hàm tạo lớp person
         public Person(string ten, string dchi, double luong)
         {
             this.ten = ten;
@@ -33,3 +33,4 @@ namespace HW2
         }
     }
 }
+
