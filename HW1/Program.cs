@@ -1,9 +1,26 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-class Program
+namespace HW_
 {
-    static void Main()
+    internal class Program
     {
-        Console.WriteLine("Nguyễn Lưu Nhật Quang\t12424060\t12424TN\tNguyenLuuNhatQuang\tnhatquang10messi@gmail.com");
+        static void Main(string[] args)
+        {
+            Console.InputEncoding = Encoding.UTF8;
+            Console.OutputEncoding = Encoding.UTF8;
+            string hoten, masv, lop, username, gmail;
+            hoten = "Nguyễn Lưu Nhật Quang";
+            masv = "12424060";
+            lop = "12424TN";
+            username = "nhatquang-jinaz";
+            gmail = "nhatquang10messi@gmail.com";
+            Console.WriteLine("Họ tên\t Mã sinh viên\t Mã lớp\t Tên tài khoản git\t Gmail");
+            Console.WriteLine($"{hoten}\t {masv}\t {lop}\t {username}\t {gmail}");
+            Console.ReadKey();
+        }
     }
 }
