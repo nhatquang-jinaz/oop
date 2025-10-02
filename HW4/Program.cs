@@ -12,35 +12,43 @@ namespace HW4
         {
             Console.InputEncoding = Encoding.UTF8;
             Console.OutputEncoding = Encoding.UTF8;
-            List<ThueXe> ds = new List<ThueXe>();
 
-            Console.Write("Nhập số lượng người thuê: ");
+            List<Phong> danhSach = new List<Phong>();
+
+            Console.Write("Nhập số lượng phòng khách thuê: ");
             int n = int.Parse(Console.ReadLine());
 
             for (int i = 0; i < n; i++)
             {
-                Console.WriteLine($"--- Người thuê {i + 1} ---");
-                Console.Write("Họ tên: ");
-                string ten = Console.ReadLine();
+                Console.WriteLine($"\n--- Phòng {i + 1} ---");
+                Console.Write("Loại phòng (A/B/C): ");
+                string loai = Console.ReadLine().ToUpper();
 
-                Console.Write("Số giờ thuê: ");
-                int gio = int.Parse(Console.ReadLine());
+                Console.Write("Số ngày thuê: ");
+                int soNgay = int.Parse(Console.ReadLine());
 
-                Console.Write("Loại xe (1. Xe du lịch, 2. Xe tải): ");
-                int loai = int.Parse(Console.ReadLine());
-
-                if (loai == 1)
-                    ds.Add(new XeDuLich(ten, gio));
+                if (loai == "A")
+                {
+                    Console.Write("Tiền dịch vụ: ");
+                    double dv = double.Parse(Console.ReadLine());
+                    danhSach.Add(new PhongA(soNgay, dv));
+                }
+                else if (loai == "B")
+                {
+                    danhSach.Add(new PhongB(soNgay));
+                }
                 else
-                    ds.Add(new XeTai(ten, gio));
+                {
+                    danhSach.Add(new PhongC(soNgay));
+                }
             }
 
-            Console.WriteLine("\nDanh sách thuê xe:");
-            Console.WriteLine("Họ tên\tSố giờ\tThành tiền");
-            foreach (var xe in ds)
+            Console.WriteLine("\n=== DANH SÁCH HÓA ĐƠN ===");
+            foreach (var p in danhSach)
             {
-                Console.WriteLine($"{xe.HoTen}\t{xe.SoGio}\t{xe.TinhTien()}");
+                p.HienThi();
             }
         }
+    
     }
 }
